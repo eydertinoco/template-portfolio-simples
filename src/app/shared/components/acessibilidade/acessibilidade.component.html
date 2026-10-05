@@ -1,0 +1,29 @@
+<section class="acessibilidade">
+  <section>
+    <app-language/>
+
+    <app-darktheme/>
+  </section>
+
+  <section class="acessibilidade__texto">
+    <button id="diminuir-fonte"
+            title="Diminuir fonte da página"
+            class="buttonAcessibilidade"
+            (click)="setFontSize('a-')"
+            aria-label="Diminuir fonte do texto em todo site">
+      A-
+    </button>
+    <button id="aumentar-fonte"
+            title="Aumentar fonte da página"
+            class="buttonAcessibilidade"
+            (click)="setFontSize('a+')"
+            aria-label="Aumentar fonte do texto em todo site">
+      A+
+    </button>
+  </section>
+
+  <section class="acessibilidade__vlibras">
+    <app-vlibras></app-vlibras>
+  </section>
+
+</section>

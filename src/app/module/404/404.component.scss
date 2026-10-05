@@ -1,0 +1,19 @@
+@import "../../../assets/sass/layout/layout";
+
+.body404 {
+  height: calc(100vh - 22rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+  & h1 {
+    color: #b52622;
+  }
+  & p {
+    margin: 0;
+    color: #2d2d2d;
+    font-size: 1.2rem;
+  }
+}

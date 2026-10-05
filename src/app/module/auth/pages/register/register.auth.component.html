@@ -1,0 +1,14 @@
+<auth-form title="{{'AUTH.REGISTER.TITLE' | translate}}"
+           description="{{'AUTH.REGISTER.DESCRIPTION' | translate}}">
+  <form>
+    <auth-input id="name" label="{{'AUTH.REGISTER.NAME' | translate}}" type="text" name="name"/>
+
+    <auth-input id="email" label="{{'AUTH.REGISTER.EMAIL' | translate}}" type="email" name="email"/>
+
+    <auth-input id="password" label="{{'AUTH.REGISTER.PASSWORD' | translate}}" type="password" name="password"/>
+
+    <auth-button value="{{'AUTH.REGISTER.BUTTON' | translate}}"/>
+
+    <auth-link value="{{'AUTH.REGISTER.LOGIN' | translate}}" link="/auth/login"/>
+  </form>
+</auth-form>

@@ -1,0 +1,60 @@
+<section class="viewpet">
+  <div>
+    <section class="viewpet__titulo">
+      <img src="{{userPet.petPhoto}}?format=webp" alt="{{userPet.petName}}"/>
+      <h1>{{userPet.petName}}</h1>
+      <p>{{userPet.petAge}} Anos</p>
+    </section>
+
+    <div *ngIf="userPet.petDescription">
+      <label>{{'PETCODE.VIEW.DESCRIPTION' | translate}}:</label>
+      <p>{{userPet.petDescription}}</p>
+    </div>
+
+    <hr/>
+
+    <section class="viewpet__owner">
+      <h2>{{userPet.owner.name}}</h2>
+      <label>{{'PETCODE.VIEW.PHONE' | translate}}:</label>
+      <section *ngFor="let phone of userPet.owner.phones">
+        <div *ngIf="phone.isMyPhone" class="viewpet__owner__phone">
+          <a href="tel:+{{phone.ddi}}{{phone.ddd}}{{phone.number}}">{{phone.ddi}}({{phone.ddd}}){{phone.number}}</a>
+          <aside *ngIf="phone.isWhatsapp">
+            <a href="https://web.whatsapp.com/send?phone={{phone.ddi}}{{phone.ddd}}{{phone.number}}" target="_blank">
+              <img src="assets/svg/whatsapp.svg" alt="Whatsapp" width="20" height="20"/>
+            </a>
+          </aside>
+        </div>
+
+        <div *ngIf="!phone.isMyPhone">
+          <label>{{'PETCODE.VIEW.ANOTHEROWNER' | translate}}:</label>
+          <p>({{phone.phoneName}}</p>
+          <p>({{phone.ddd}}){{phone.number}}</p>
+          <aside *ngIf="phone.isWhatsapp">
+            <a href="https://web.whatsapp.com/send?phone=55{{phone.ddd}}{{phone.number}}" target="_blank">
+              <img src="assets/svg/whatsapp.svg" alt="Whatsapp" width="20" height="20"/>
+            </a>
+          </aside>
+        </div>
+      </section>
+      <section>
+        <label>{{'PETCODE.VIEW.ADDRESS' | translate}}:</label>
+        <p>
+          {{userPet.owner.address?.streetAddress}}, {{userPet.owner.address?.streetNumber}} -
+          {{userPet.owner.address?.neighborhood}}, {{userPet.owner.address?.city}} - {{userPet.owner.address?.state}},
+          {{userPet.owner.address?.country}}, {{userPet.owner.address?.zipCode}}.
+        </p>
+      </section>
+    </section>
+
+    <hr/>
+
+    <section *ngIf="userPet.petIllness">
+      <h3>{{'PETCODE.VIEW.ILLNESS' | translate}}:</h3>
+      <div *ngFor="let illness of userPet.petIllness">
+        <label>{{ illness.illnessName }}</label>
+        <p>{{ illness.illnessDescription }}</p>
+      </div>
+    </section>
+  </div>
+</section>

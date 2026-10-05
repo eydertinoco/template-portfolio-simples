@@ -1,0 +1,48 @@
+@import "../../../../../assets/sass/layout/layout";
+
+.viewpet {
+  padding: 5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & label {
+    font-weight: 600;
+  }
+  &__titulo {
+    text-align: center;
+    & img {
+      width: 250px;
+      height: 250px;
+      border-radius: 100%;
+    }
+    & h1 {
+      margin: 0;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 3rem;
+      text-shadow: 0 0 2px #6c6c6c;
+    }
+    & p {
+      margin: 0;
+      text-align: center;
+    }
+  }
+  &__owner {
+    & h2 {
+      margin: 1rem 0;
+      text-align: center;
+    }
+    & a, p {
+      margin: 0.5rem 0;
+    }
+    &__phone {
+      display: flex;
+      align-items: center;
+      & img {
+        margin-left: 1rem;
+        filter: brightness(0);
+      }
+    }
+  }
+
+}
