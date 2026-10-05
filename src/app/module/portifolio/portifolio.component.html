@@ -1,58 +1,56 @@
 <main>
-  <section class="styleSection">
-    <section class="shadowSection">
-      <h1>{{'PORTIFOLIO.TITLE' | translate}}</h1>
-      <h2>{{'PORTIFOLIO.DESCRIPTION' | translate}}</h2>
-    </section>
-  </section>
+  <section id="sobre" class="sobre">
+    <section class="sobre__title">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZB5So-rDGDJ4EzI9ULE1K3t_an2dgGKDmHM2AvZZwag&s=10"/>
 
-  <section class="styleSection">
-    <section class="section sobreMim">
-      <h3>{{'PORTIFOLIO.ABOUT_ME.TITLE' | translate}}</h3>
-
-      <aside class="sobreMim__article__aside">
-        <p>{{'PORTIFOLIO.ABOUT_ME.DESCRIPTION' | translate}}</p>
+      <aside>
+        <h2>TITULO CHAMATIVO</h2>
+        <h3>Texto de descrição</h3>
+        <article>
+          <p>{{ sobremin_texto1 }}</p>
+        </article>
       </aside>
     </section>
-
-    <section class="section timeline">
-      <h3>{{'PORTIFOLIO.WORK_TIMELINE.TITLE' | translate}}</h3>
-      <div class="timeline__body" [style.background-image]="'url(' + backgroundImageUrl + ')'">
-        <div class="timeline__body--shadow">
-          <aside class="timeline__body__aside">
-            <timeline-component (choseTheme)="choseTheme = $event"/>
-          </aside>
-          <article class="timeline__article">
-            <app-experiencia *ngIf="choseTheme"
-                             [myExperience]="getExperienceForTheme(choseTheme)"
-                             class="experience__article__aside--app"/>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section skill">
-      <h3>Tecnologia & Habilidades</h3>
-      <article class="skill__article">
-
-        <skill-tecnology *ngFor="let tecnology of listTecnologys"
-                         [tecnologyName]="tecnology.tecnologyName"
-                         [mySkillLevel]="tecnology.mySkillLevel"
-                         [tecnologyImg]="tecnology.tecnologyImg">
-        </skill-tecnology>
-
-      </article>
-    </section>
-
-    <section class="section experience">
-      <h3>Social Action</h3>
-      <article class="experience__article">
-        <p>Nucleo De Educacao Ambiental Francisco De Assis</p>
-        <p>Associação dos Pais e Amigos de Leucêmicos de Alagoas -APALA</p>
-        <p>ONG Pata Amada</p>
-        <p>Mesário 2020</p>
-      </article>
-    </section>
   </section>
+
+  <section id="cursos" class="cursos">
+    <h4 class="title">Cursos disponiveis</h4>
+
+    <div style="display: flex;">
+      <article *ngFor="let youtubeLink of youtubeList">
+        <a href="{{youtubeLink.link}}" class="cursos__link" target="_blank">
+          <img src="{{youtubeLink.banner}}" alt="{{youtubeLink.title}}"/>
+        </a>
+      </article>
+    </div>
+
+  </section>
+
+  <section id="contato" class="contato">
+    <h4 class="title">Contato</h4>
+    <form class="contato__form" action="https://api.staticforms.xyz/submit" method="post">
+      <div class="contato__form__column">
+        <label>Nome</label>
+        <input name="name" type="text" required/>
+      </div>
+
+      <div class="contato__form__column">
+        <label>Email</label>
+        <input name="email" type="email" required/>
+      </div>
+
+      <div class="contato__form__column">
+        <label>Texto</label>
+        <textarea name="message" required></textarea>
+      </div>
+
+      <button type="submit">Enviar</button>
+
+      <input type="hidden" name="accessKey" value="3e3cd3a3-e0b1-4a5b-b6b7-9d134207d8e9">
+      <!--      <input type="hidden" name="redirectTo" value="https://eyder.com.br">-->
+    </form>
+  </section>
+
+  <p *ngIf="textoEnviado">Texto enviado com sucesso</p>
 </main>
 

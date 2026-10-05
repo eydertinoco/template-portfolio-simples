@@ -1,23 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SkillLevel } from "../../shared/enums/skill-level.enum";
-import { Timeline } from "../../shared/enums/timeline.enum";
-import { TecnologyService } from "../../services/TecnologyService";
-import {TranslateService} from "@ngx-translate/core";
+import { TranslateService } from "@ngx-translate/core";
 
-interface Tecnology {
-  tecnologyName: string;
-  mySkillLevel: SkillLevel;
-  tecnologyImg: string;
-}
-
-interface Experience {
-  nome: string;
-  dataEntrada: string;
-  dataSaida: string;
-  status: string;
-  descricao: string;
-  theme: string;
-}
 
 @Component({
   selector: 'app-portifolio',
@@ -25,54 +8,38 @@ interface Experience {
   styleUrls: ['./portifolio.component.scss']
 })
 export class PortifolioComponent implements OnInit {
-  choseTheme: Timeline | null = null;
+  textoEnviado: Boolean = false;
 
-  listTecnologys: Tecnology[] = [];
-  backgroundImageUrl = '../../assets/img/ifal.jpg';
+  sobremin_texto1: string =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non viverra enim. Donec molestie pharetra velit ac commodo. Nullam ullamcorper diam aliquam ligula tincidunt dapibus. Proin pretium pulvinar augue vulputate convallis. Donec convallis hendrerit arcu vitae mollis. Vivamus eleifend ligula rutrum tristique tempus. Duis pulvinar sit amet tortor et tincidunt. Nullam quis tincidunt enim, ut mattis nibh. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer nec enim enim.";
 
-  myExperience: Experience[] = [];
+  youtubeList = [
+    {
+      id: 1,
+      banner: 'https://static-media.hotmart.com/MTrErMZ8LOSBX5uDmW5P_eqzBGg=/300x300/smart/filters:format(webp):background_color(white)/hotmart/product_pictures/29bf34f3-159a-45c6-8789-4ad6815144f0/ChatGPTImage11dejulde202609_46_10.png?w=920',
+      title: 'Curso Maquiagem na Web 1.0 - Automaquiagem',
+      link: 'https://hotmart.com/pt-br/marketplace/produtos/maquiagemnaweb/J3864784O?sck=HOTMART_SITE&hotfeature=33'
+    },
+    {
+      id: 2,
+      banner: 'https://static-media.hotmart.com/MTrErMZ8LOSBX5uDmW5P_eqzBGg=/300x300/smart/filters:format(webp):background_color(white)/hotmart/product_pictures/29bf34f3-159a-45c6-8789-4ad6815144f0/ChatGPTImage11dejulde202609_46_10.png?w=920',
+      title: 'Curso Maquiagem na Web 1.0 - Automaquiagem',
+      link: 'https://hotmart.com/pt-br/marketplace/produtos/maquiagemnaweb/J3864784O?sck=HOTMART_SITE&hotfeature=33'
+    },
+    {
+      id: 3,
+      banner: 'https://static-media.hotmart.com/MTrErMZ8LOSBX5uDmW5P_eqzBGg=/300x300/smart/filters:format(webp):background_color(white)/hotmart/product_pictures/29bf34f3-159a-45c6-8789-4ad6815144f0/ChatGPTImage11dejulde202609_46_10.png?w=920',
+      title: 'Curso Maquiagem na Web 1.0 - Automaquiagem',
+      link: 'https://hotmart.com/pt-br/marketplace/produtos/maquiagemnaweb/J3864784O?sck=HOTMART_SITE&hotfeature=33'
+    },
+  ]
 
   constructor(
-    private tecnologyService: TecnologyService,
     private translate: TranslateService
   ) {
   }
 
   ngOnInit(): void {
-    this.tecnologyService.getTecnologies().subscribe(data => {
-      this.listTecnologys = data.map(tecnology => ({
-        tecnologyName: tecnology.tecnologyName,
-        mySkillLevel: this.mapSkillLevel(tecnology.mySkillLevel),
-        tecnologyImg: tecnology.tecnologyImg
-      }));
-    });
 
-    this.translate.get('PORTIFOLIO.WORK_TIMELINE.EXPERIENCE').subscribe((experiences: Experience[]) => {
-      this.myExperience = experiences.map(exp => ({
-        ...exp,
-      }));
-    });
   }
-
-  private mapSkillLevel(level: string): SkillLevel {
-    const skillLevel = level.replace('SkillLevel.', ''); // Remover o prefixo
-    switch (skillLevel) {
-      case 'BEGINNER':
-        return SkillLevel.BEGINNER;
-      case 'INTERMEDIARY':
-        return SkillLevel.INTERMEDIARY;
-      case 'ADVANCED':
-        return SkillLevel.ADVANCED;
-      case 'MASTER':
-        return SkillLevel.MASTER;
-      default:
-        throw new Error(`Unknown skill level: ${skillLevel}`);
-    }
-  }
-
-  getExperienceForTheme(theme: Timeline): any[] {
-    return this.myExperience.filter(experience => experience.theme === theme);
-  }
-
-  protected readonly SkillLevel = SkillLevel;
 }

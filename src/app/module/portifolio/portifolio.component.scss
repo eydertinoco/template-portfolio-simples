@@ -6,212 +6,112 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: url("../../../assets/img/portifolio.jpg");
-  background-repeat: repeat;
-  background-size: contain;
-  & .styleSection {
-    width: 100%;
-    min-height: 100vh;
+  background: $neutrals900;
+}
+
+.title {
+  color: $neutrals100;
+  text-align: center;
+  font-size: 2rem;
+  margin: 2rem;
+}
+
+.sobre {
+  & h2 {
+    font-size: 3rem;
+    margin: 0;
+  }
+  & h3 {
+    font-size: 2rem;
+  }
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 558px;
+    border-bottom: 4px solid;
+    background: $neutrals100;
+    padding: 2rem;
+  }
+  & aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: self-end;
+    text-align: justify;
+  }
+}
+
+.cursos {
+  &__link {
+    display: block;
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0px $neutrals100;
+    margin: 1rem;
+    & img {
+      border-radius: 5px;
+    }
+  }
+}
+
+.contato {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 1rem 2rem;
+  &__form {
     display: flex;
     align-items: center;
     justify-content: center;
-    &:first-child {
-      @include media(phone, tablet) {
-        width: 0;
-      };
-    }
-    &:last-child {
-      padding: 60px 20px 20px;
-      background: $neutrals100;
-      flex-direction: column;
-      & h1 {
-        color: $neutrals900;
-        text-align: center;
-        padding: 10px;
-        font-size: 2rem;
-        border: 1px solid $neutrals900;
-        border-radius: 10px;
-        margin: 10px 0;
-      }
-    }
-    & .shadowSection {
-      background: rgba(0, 0, 0, 0.6);
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: $neutrals100;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px $neutrals100;
+    width: 100vw;
+    &__column {
       display: flex;
-      align-items: center;
-      justify-content: center;
       flex-direction: column;
-      height: 100vh;
-      width: 100vw;
-      & h1 {
-        margin: 0;
-        font-size: 3rem;
-        font-weight: 500;
-        color: $neutrals100;
-        text-shadow: 0 0 10px $neutrals900;
-        font-family: 'Dela Gothic One', sans-serif;
-      }
-      & h2 {
+      width: 100%;
+      & label {
         font-size: 1rem;
-        margin: 0;
-        color: $neutrals100;
-        text-shadow: 0 0 10px $neutrals900;
+        color: $neutrals900
+      }
+      & input, textarea {
+        border-radius: 5px;
+        padding: 5px;
+        font-size: 1rem;
+        margin: 5px 0;
+      }
+      & textarea {
+        height: 100px;
+        border-top: 2px solid black;
+        border-left: 2px solid black;
+        border-right: 2px solid #767676;
+        border-bottom: 2px solid #767676;
       }
     }
-  }
-}
-
-.sobreMim {
-  margin-top: 10px;
-  &__article {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 800px;
-    margin: 0 auto;
-    padding-bottom: 20px;
-    &__background {
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      border-radius: 20px;
-      @include media(laptop, desktop, big-screen) {
-        height: 350px;
-        width: 600px;
-      }
-      @include media(phone, tablet) {
-        height: 350px;
-        width: 100%;
-      }
-    }
-    &__aside {
+    & button {
+      margin: 10px;
+      background: transparent;
+      border: 1px solid $neutrals900;
       color: $neutrals900;
-      width: 100%;
-      padding: 20px 20px 20px 10px;
-      margin-left: 10px;
-      border-left: 1px solid $neutrals900;
-      & p {
-        margin: 0;
-        text-align: justify;
-      }
-    }
-  }
-}
-
-.timeline {
-  width: 100%;
-  &__body {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    &--shadow {
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      background: rgba(255, 255, 255, 0.80);
-      width: 100%;
+      font-size: 1rem;
       padding: 10px;
-    }
-    &__side {
+      text-transform: uppercase;
+      font-weight: 800;
+      border-radius: 10px;
+      max-width: 300px;
       width: 100%;
-      max-width: 270px;
-    }
-  }
-  &__article {
-    margin: 0 auto;
-    padding-bottom: 20px;
-    width: 100%;
-    &__background {
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      border-radius: 20px;
-      @include media(laptop, desktop, big-screen) {
-        height: 350px;
-        width: 600px;
-      }
-      @include media(phone, tablet) {
-        height: 350px;
-        width: 100%;
-      }
-    }
-    &__aside {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      color: $neutrals900;
-      width: 100%;
-      padding: 20px 20px 20px 10px;
-      & p {
-        margin: 0;
-        text-align: justify;
-      }
-      &--app {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        width: 100%;
-      }
-    }
-  }
-}
-
-.skill {
-  width: 100%;
-  &__article {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    padding-bottom: 20px;
-    &__background {
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      border-radius: 20px;
-      @include media(laptop, desktop, big-screen) {
-        height: 350px;
-        width: 600px;
-      }
-      @include media(phone, tablet) {
-        height: 350px;
-        width: 100%;
-      }
-    }
-    &__aside {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      color: $neutrals900;
-      width: 100%;
-      padding: 20px 20px 20px 10px;
-      & p {
-        margin: 0;
-        text-align: justify;
-      }
-      &--app {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        width: 100%;
-      }
-    }
-    &__tecnology {
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-start;
-      width: 100%;
-      &--description {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        color: $neutrals900;
-        padding: 20px 20px 20px 10px;
+      cursor: pointer;
+      transition: 0.5s;
+      &:hover {
+        background-color: $neutrals400;
       }
     }
   }
